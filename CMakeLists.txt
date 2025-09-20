@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
-project(program)
-enable_language(C)
+project(program C)
+
 include(CheckCCompilerFlag)
 
 option(build_tests "Build tests" OFF)
@@ -11,21 +11,19 @@ else()
     add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 endif()
 
-add_subdirectory(rktest)
+add_subdirectory(lib)
 
 set(PROJECT_OBJ
-        src/example_compilation_unit.c
+    src/example_compilation_unit.c
 )
 
 if (build_tests)
-    set(TEST_SRC
-            tests/example_compilation_unit_tests.c
-            ${PROJECT_OBJ}
+    add_executable(test
+        tests/example_compilation_unit_tests.c
+        ${PROJECT_OBJ}
     )
-
-    add_executable(tests ${TEST_SRC})
-    target_link_libraries(tests PUBLIC rktest)
+    target_link_libraries(test PRIVATE rktest)
 else()
     add_executable(program src/main.c ${PROJECT_OBJ})
-endif (build_tests)
-
+    target_link_libraries(program PRIVATE rktest)
+endif()
