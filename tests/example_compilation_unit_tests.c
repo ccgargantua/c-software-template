@@ -1,6 +1,6 @@
 #include "../src/example_compilation_unit.h"
 
-#include "rktest.h"
+#include "../rktest/rktest.h"
 
 TEST(example_tests, add_vector2i_test)
 {

@@ -11,7 +11,7 @@ else()
     add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 endif()
 
-add_subdirectory(test)
+add_subdirectory(rktest)
 
 set(PROJECT_OBJ
         src/example_compilation_unit.c
@@ -19,7 +19,7 @@ set(PROJECT_OBJ
 
 if (build_tests)
     set(TEST_SRC
-            test/example_compilation_unit_tests.c
+            tests/example_compilation_unit_tests.c
             ${PROJECT_OBJ}
     )
 
