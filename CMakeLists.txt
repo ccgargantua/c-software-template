@@ -11,11 +11,7 @@ else()
     add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 endif()
 
-add_library(rktest test/rktest.c)
-target_include_directories(rktest PUBLIC src)
-target_include_directories(rktest PUBLIC test)
-target_compile_definitions(rktest PRIVATE RKTEST_DEFINE_MAIN=1)
-set_property(TARGET rktest PROPERTY C_STANDARD 99)
+add_subdirectory(test)
 
 if(UNIX)
     target_link_libraries(rktest PUBLIC m)
@@ -27,7 +23,6 @@ set(PROJECT_OBJ
 
 if (build_tests)
     set(TEST_SRC
-            test/rktest.c
             test/example_compilation_unit_tests.c
             ${PROJECT_OBJ}
     )
