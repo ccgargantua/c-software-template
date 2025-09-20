@@ -12,7 +12,7 @@
       "inherits": "base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
-        "TEST": "OFF"
+        "build_tests": "OFF"
       }
     },
     {
@@ -20,7 +20,7 @@
       "inherits": "base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
-        "TEST": "OFF"
+        "build_tests": "OFF"
       }
     },
     {
@@ -28,7 +28,7 @@
       "inherits": "base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
-        "TEST": "ON"
+        "build_tests": "ON"
       }
     }
   ]
